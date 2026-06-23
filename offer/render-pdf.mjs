@@ -6,9 +6,10 @@ const { chromium } = require(process.env.PLAYWRIGHT_PKG || 'playwright');
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// Путь к HTML передаётся аргументом; PDF создаётся рядом с тем же именем.
 const here = path.dirname(fileURLToPath(import.meta.url));
-const htmlPath = path.join(here, 'Коммерческое-предложение-Факторинг.html');
-const pdfPath  = path.join(here, 'Коммерческое-предложение-Факторинг.pdf');
+const htmlPath = path.resolve(process.argv[2] || path.join(here, 'output', 'ooo-konkord__ru.html'));
+const pdfPath  = htmlPath.replace(/\.html?$/i, '.pdf');
 
 const browser = await chromium.launch();
 const page = await browser.newPage();

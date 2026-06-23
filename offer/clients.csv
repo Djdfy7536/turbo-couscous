@@ -1,0 +1,3 @@
+client_name,debtors,langs,date,doc_number,factoring_type,financing_pct,deferral_days,limit_bn,key_rate_markup,factoring_commission,limit_term_days,validity_days,currency,manager_name,manager_phone,manager_email,manager_site
+ООО «КОНКОРД»,ООО «ВСЕИНСТРУМЕНТЫ.РУ»,"ru,en",2026-06-09,КП-2026/06-09,recourse,100,90,70,3.9,0.15,10,30,RUB,Илья Кириллин,+7 926 090 23 15,i.a.kirillin@tbank.ru,www.tbank.ru
+ООО «ПРИМЕР-ТРЕЙД»,"ООО «МАГНИТ», ПАО «ЛЕНТА»",ru,2026-06-23,КП-2026/06-23,nonrecourse,95,120,5,4.4,0.20,10,30,RUB,Илья Кириллин,+7 926 090 23 15,i.a.kirillin@tbank.ru,www.tbank.ru

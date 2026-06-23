@@ -1,0 +1,371 @@
+/* ============================================================
+   ДИЗАЙН-СИСТЕМА  ·  Коммерческое предложение «РБ Факторинг»
+   ============================================================ */
+:root{
+  --ink:#16161A;
+  --ink-2:#23232A;
+  --ink-soft:#3C3C44;
+  --paper:#FFFFFF;
+  --cream:#FBF9F5;
+  --cream-2:#F4F0E8;
+  --line:#E7E2D8;
+  --line-soft:#EFEBE2;
+  --muted:#8C887F;
+  --muted-2:#A9A498;
+  --gold:#B0895A;
+  --gold-light:#CBA86B;
+  --gold-deep:#8C6F45;
+  --gold-bg:#F6EEE0;
+  --yellow:#FFDD2D;
+  --yellow-deep:#F2C800;
+  --txt:#2A2A2E;
+  --grad-gold:linear-gradient(135deg,#CBA86B 0%,#B0895A 45%,#8C6F45 100%);
+  --grad-ink:linear-gradient(160deg,#23232A 0%,#16161A 60%,#101014 100%);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+html,body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--txt);
+  background:#52525b;
+  font-size:10.5pt;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+@page{ size:A4; margin:0; }
+
+.page{
+  position:relative;
+  width:210mm;
+  min-height:297mm;
+  height:297mm;
+  background:var(--paper);
+  margin:0 auto;
+  overflow:hidden;
+  page-break-after:always;
+  break-after:page;
+}
+.page:last-child{ page-break-after:auto; break-after:auto; }
+
+@media screen{
+  .page{ margin:18px auto; box-shadow:0 24px 70px rgba(0,0,0,.45); }
+}
+
+/* ---- общие типографические утилиты ---- */
+.eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:8pt;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+h1,h2,h3,h4{ font-family:'Montserrat',sans-serif; color:var(--ink); font-weight:700; }
+strong{ font-weight:600; color:var(--ink); }
+.gold-text{ color:var(--gold-deep); }
+.rule-gold{ width:54px; height:3px; background:var(--grad-gold); border-radius:3px; }
+
+/* =========================================================
+   ЛОГОТИП-ЛОКАП
+   ========================================================= */
+.logo-lockup img{ display:block; height:38px; width:auto; }
+.logo-lockup.sm img{ height:26px; }
+
+/* =========================================================
+   ОБЛОЖКА
+   ========================================================= */
+.cover{ display:flex; flex-direction:column; background:var(--cream); }
+.cover__topbar{ height:6px; background:var(--grad-gold); }
+.cover__head{
+  flex:0 0 auto;
+  display:flex; align-items:flex-start; justify-content:space-between;
+  padding:20mm 20mm 0 20mm;
+}
+.conf-badge{
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:'Montserrat',sans-serif; font-weight:600;
+  font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold-deep);
+  border:1px solid var(--gold-light);
+  border-radius:40px; padding:6px 13px; background:rgba(255,255,255,.6);
+}
+.conf-badge .dot{ width:6px;height:6px;border-radius:50%;background:var(--grad-gold); }
+.cover__intro{ padding:14mm 20mm 0 20mm; }
+.cover__intro .eyebrow{ font-size:9pt; letter-spacing:.4em; }
+.cover__client{
+  margin-top:6mm;
+  font-family:'Inter',sans-serif; font-size:10.5pt; color:var(--muted);
+}
+.cover__client b{ color:var(--ink); font-weight:600; }
+.cover__highlights{
+  margin-top:13mm; display:flex; gap:0; align-items:stretch;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.cover__highlights .h{ flex:1; padding:7mm 6mm 7mm 0; }
+.cover__highlights .h + .h{ padding-left:7mm; border-left:1px solid var(--line); }
+.cover__highlights .hv{
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:21pt; color:var(--ink); line-height:1;
+}
+.cover__highlights .hv span{ color:var(--gold-deep); }
+.cover__highlights .hl{ margin-top:8px; font-size:8.6pt; color:var(--muted); letter-spacing:.02em; line-height:1.4; }
+.cover__panel{
+  margin-top:auto; position:relative;
+  background:var(--grad-ink); color:#fff;
+  padding:18mm 20mm 16mm 20mm; overflow:hidden;
+}
+.cover__panel::before{
+  content:""; position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 88% 12%, rgba(176,137,90,.30), transparent 42%),
+    radial-gradient(circle at 12% 95%, rgba(255,221,45,.07), transparent 40%);
+  pointer-events:none;
+}
+.cover__panel::after{
+  content:""; position:absolute; right:-60px; top:-60px;
+  width:280px; height:280px; border-radius:50%;
+  border:1px solid rgba(203,168,107,.22);
+  box-shadow:0 0 0 26px rgba(203,168,107,.05), 0 0 0 60px rgba(203,168,107,.03);
+  pointer-events:none;
+}
+.cover__panel-inner{ position:relative; z-index:2; }
+.cover__panel .eyebrow{ color:var(--gold-light); }
+.cover__title{
+  font-size:33pt; line-height:1.08; font-weight:800; color:#fff;
+  letter-spacing:-.01em; margin-top:10px;
+}
+.cover__title .accent{
+  background:linear-gradient(120deg,#FFDD2D,#E9B84B 60%,#CBA86B);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.cover__sub{
+  margin-top:14px; max-width:135mm;
+  font-size:11pt; color:#C9C6CE; font-weight:400; line-height:1.6;
+}
+.cover__divider{ width:60px;height:3px;background:var(--grad-gold);border-radius:3px;margin:18px 0 0; }
+.cover__meta{
+  margin-top:16mm; display:flex; gap:0;
+  border-top:1px solid rgba(255,255,255,.12); padding-top:9mm;
+}
+.cover__meta .cell{ flex:1; padding-right:8mm; position:relative; }
+.cover__meta .cell + .cell{ padding-left:8mm; border-left:1px solid rgba(255,255,255,.12); }
+.cover__meta .k{
+  font-family:'Montserrat',sans-serif; font-size:7pt; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--gold-light); font-weight:600;
+}
+.cover__meta .v{ margin-top:6px; font-size:10.5pt; color:#fff; font-weight:500; }
+.cover__meta .v small{ color:#A7A3AC; font-weight:400; }
+
+/* =========================================================
+   КОНТЕНТ-СТРАНИЦЫ — каркас
+   ========================================================= */
+.sheet{ display:flex; flex-direction:column; padding:0; }
+.sheet__head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14mm 20mm 0 20mm;
+}
+.sheet__head .section-id{
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--muted);
+}
+.sheet__head .section-id b{ color:var(--gold-deep); }
+.sheet__band{
+  margin:7mm 20mm 0 20mm; height:1px; background:var(--line); position:relative;
+}
+.sheet__band::before{ content:""; position:absolute; left:0; top:0; width:54px; height:1px; background:var(--grad-gold); }
+.sheet__body{ flex:1; padding:8mm 20mm 0 20mm; }
+.sheet__foot{
+  margin-top:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:6mm 20mm 9mm 20mm;
+  font-family:'Inter',sans-serif; font-size:7.5pt; color:var(--muted-2);
+  letter-spacing:.04em;
+}
+.sheet__foot .brand{ font-family:'Montserrat',sans-serif; font-weight:600; color:var(--ink-soft); letter-spacing:.06em; }
+.sheet__foot .pg b{ color:var(--gold-deep); }
+.section-title{ font-size:21pt; line-height:1.12; font-weight:800; letter-spacing:-.01em; }
+.section-lead{ margin-top:9px; color:var(--muted); font-size:10.5pt; max-width:150mm; }
+
+/* =========================================================
+   ПИСЬМО
+   ========================================================= */
+.letter h2{ font-size:15pt; }
+.letter p{ margin-top:11px; color:var(--txt); }
+.letter .salut{
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:14pt;
+  color:var(--ink); margin-bottom:4px;
+}
+.letter .drop::first-letter{
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:30pt;
+  float:left; line-height:.84; padding:4px 12px 0 0; color:var(--gold);
+}
+.pullquote{
+  margin:16px 0; padding:16px 22px;
+  background:var(--cream); border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;
+}
+.pullquote p{ margin:0; font-size:11pt; color:var(--ink-soft); font-style:normal; }
+.pullquote .big{ font-family:'Montserrat',sans-serif; font-weight:700; color:var(--ink); }
+.signature{
+  margin-top:14mm; display:flex; align-items:flex-start; gap:22px;
+  padding-top:8mm; border-top:1px solid var(--line);
+}
+.sig-mark{
+  flex:0 0 auto; width:54px; height:54px; border-radius:14px;
+  background:var(--grad-ink); color:var(--gold-light);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:17pt;
+  box-shadow:0 8px 18px rgba(22,22,26,.18);
+}
+.signature .who{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:12pt; color:var(--ink); }
+.signature .role{ color:var(--muted); font-size:9.5pt; margin-top:2px; }
+.signature .contacts{ margin-top:10px; font-size:9pt; color:var(--ink-soft); line-height:1.9; }
+.signature .contacts .ci{ display:inline-flex; align-items:center; gap:7px; margin-right:18px; }
+.signature .contacts svg{ width:13px;height:13px; color:var(--gold); }
+.signature .contacts a{ color:var(--ink-soft); text-decoration:none; }
+
+/* =========================================================
+   ПРЕИМУЩЕСТВА — карточки
+   ========================================================= */
+.cards{ display:grid; grid-template-columns:1fr 1fr; gap:4.2mm; margin-top:6mm; }
+.card{
+  position:relative; padding:6.5mm 7mm 6mm; border-radius:14px;
+  background:var(--paper); border:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(0,0,0,.01);
+}
+.card::before{
+  content:""; position:absolute; left:0; top:16px; bottom:16px; width:3px;
+  background:var(--grad-gold); border-radius:3px;
+}
+.card .ic{
+  width:40px; height:40px; border-radius:11px; background:var(--gold-bg);
+  display:flex; align-items:center; justify-content:center; margin-bottom:10px;
+}
+.card .ic svg{ width:21px; height:21px; color:var(--gold-deep); }
+.card .num{
+  position:absolute; top:6.5mm; right:7mm;
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:9pt; color:var(--line);
+}
+.card h3{ font-size:11.5pt; line-height:1.16; }
+.card h3 .hl{ color:var(--gold-deep); }
+.card p{ margin-top:6px; font-size:9pt; color:var(--muted); line-height:1.5; }
+.metric-strip{
+  margin-top:5mm; display:grid; grid-template-columns:repeat(3,1fr);
+  background:var(--grad-ink); border-radius:14px; overflow:hidden;
+}
+.metric{ padding:4.5mm 6mm; color:#fff; position:relative; }
+.metric + .metric{ border-left:1px solid rgba(255,255,255,.10); }
+.metric .mv{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:19pt; color:var(--yellow); line-height:1; }
+.metric .mv small{ font-size:10.5pt; color:var(--gold-light); }
+.metric .ml{ margin-top:6px; font-size:8.2pt; color:#BBB7BF; letter-spacing:.02em; }
+
+/* =========================================================
+   УСЛОВИЯ — таблица
+   ========================================================= */
+.terms{ margin-top:9mm; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+.terms__row{ display:grid; grid-template-columns:62mm 1fr; align-items:stretch; }
+.terms__row + .terms__row{ border-top:1px solid var(--line-soft); }
+.terms__row:nth-child(even){ background:var(--cream); }
+.terms__k{
+  padding:11px 16px; font-family:'Montserrat',sans-serif; font-weight:600;
+  font-size:9pt; color:var(--ink-soft); letter-spacing:.01em;
+  display:flex; align-items:center; gap:10px;
+  border-right:1px solid var(--line-soft);
+}
+.terms__k .kdot{ width:5px;height:5px;border-radius:50%;background:var(--gold);flex:0 0 auto; }
+.terms__v{ padding:11px 16px; font-size:9.4pt; color:var(--txt); display:flex; align-items:center; }
+.terms__v b{ color:var(--ink); }
+.terms__v .pill{
+  display:inline-block; font-family:'Montserrat',sans-serif; font-weight:700; font-size:8.5pt;
+  background:var(--yellow); color:#1a1a1a; padding:3px 10px; border-radius:30px; margin-right:6px;
+}
+.terms__v .pill.gold{ background:var(--grad-gold); color:#fff; }
+.terms__row.highlight{ background:var(--gold-bg) !important; }
+.terms__row.highlight .terms__k{ color:var(--gold-deep); border-right-color:rgba(176,137,90,.25); }
+.footnotes{ margin-top:7mm; font-size:7.6pt; color:var(--muted); line-height:1.55; }
+.footnotes p{ margin-top:5px; padding-left:14px; position:relative; }
+.footnotes p .mk{ position:absolute; left:0; color:var(--gold-deep); font-weight:700; }
+
+/* =========================================================
+   ТАРИФНАЯ СЕТКА
+   ========================================================= */
+.tariffs{ margin-top:8mm; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+.tariffs__grid{ display:grid; grid-template-columns:1.45fr 1fr 1.25fr 1.1fr; }
+.tariffs__grid .th{
+  background:var(--grad-ink); color:var(--gold-light);
+  padding:11px 14px; font-family:'Montserrat',sans-serif; font-weight:600;
+  font-size:7.6pt; letter-spacing:.06em; text-transform:uppercase; line-height:1.25;
+}
+.tariffs__grid .th + .th{ border-left:1px solid rgba(255,255,255,.10); }
+.tariffs__grid .td{
+  padding:13px 14px; font-size:9pt; color:var(--txt);
+  border-top:1px solid var(--line-soft); display:flex; align-items:center;
+}
+.tariffs__grid .td:not(:nth-child(4n+1)){ border-left:1px solid var(--line-soft); }
+.tariffs__grid .r-even .td{ background:var(--cream); }
+.tariffs__grid .tier{ font-family:'Montserrat',sans-serif; font-weight:700; color:var(--ink); gap:9px; }
+.tariffs__grid .tier .kdot{ width:5px;height:5px;border-radius:50%;background:var(--gold);flex:0 0 auto;margin-right:3px; }
+.tariffs__grid .big{ font-family:'Montserrat',sans-serif; font-weight:800; color:var(--gold-deep); font-size:11pt; }
+.tariffs__grid .td.cur{ background:var(--gold-bg) !important; }
+.tariffs__grid .tier .yourbadge{
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:6.6pt; letter-spacing:.08em;
+  text-transform:uppercase; color:#1a1a1a; background:var(--yellow);
+  padding:2px 7px; border-radius:20px; margin-left:8px;
+}
+.tariff-note{ margin-top:4mm; font-size:7.6pt; color:var(--muted); line-height:1.55; padding-left:14px; position:relative; }
+.tariff-note .mk{ position:absolute; left:0; color:var(--gold-deep); font-weight:700; }
+
+.info-grid{ margin-top:6mm; display:grid; grid-template-columns:repeat(3,1fr); gap:4.5mm; }
+.info{ border:1px solid var(--line); border-radius:13px; padding:6mm 6mm 6mm; background:var(--paper); position:relative; }
+.info .ic{ width:34px;height:34px;border-radius:10px;background:var(--gold-bg);display:flex;align-items:center;justify-content:center;margin-bottom:10px; }
+.info .ic svg{ width:18px;height:18px;color:var(--gold-deep); }
+.info h4{ font-size:9.7pt; line-height:1.2; }
+.info p{ margin-top:5px; font-size:8.3pt; color:var(--muted); line-height:1.5; }
+
+/* =========================================================
+   ПРОЦЕСС + ЗАКЛЮЧЕНИЕ
+   ========================================================= */
+.steps{ margin-top:6mm; }
+.step{
+  display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:flex-start;
+  padding-bottom:3.8mm; position:relative;
+}
+.step:not(:last-child)::before{
+  content:""; position:absolute; left:17px; top:40px; bottom:0; width:2px;
+  background:linear-gradient(var(--gold-light),var(--line));
+}
+.step .badge{
+  width:36px;height:36px;border-radius:50%; background:var(--paper);
+  border:2px solid var(--gold); color:var(--gold-deep);
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:11pt;
+  display:flex; align-items:center; justify-content:center; z-index:2;
+}
+.step:last-child .badge{ background:var(--grad-gold); color:#fff; border-color:transparent; }
+.step .st-body h4{ font-size:11.5pt; }
+.step .st-body p{ margin-top:4px; font-size:9.3pt; color:var(--muted); }
+.cta{
+  margin-top:5mm; background:var(--grad-ink); color:#fff;
+  border-radius:18px; padding:8mm 11mm; position:relative; overflow:hidden;
+}
+.cta::after{
+  content:""; position:absolute; right:-50px; bottom:-50px; width:220px;height:220px;border-radius:50%;
+  border:1px solid rgba(203,168,107,.20); box-shadow:0 0 0 24px rgba(203,168,107,.05);
+}
+.cta .eyebrow{ color:var(--gold-light); }
+.cta h3{ color:#fff; font-size:16pt; margin-top:8px; line-height:1.22; max-width:130mm; }
+.cta p{ margin-top:10px; color:#C9C6CE; font-size:9.6pt; max-width:135mm; }
+.cta .row{ margin-top:7mm; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.cta .btn{
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:9.5pt;
+  background:var(--yellow); color:#161616; padding:11px 22px; border-radius:40px;
+}
+.cta .contact-inline{ font-size:9pt; color:#D7D4DC; }
+.cta .contact-inline b{ color:#fff; }
+.disclaimer{
+  margin-top:5mm; padding:13px 18px; border:1px dashed var(--line);
+  border-radius:12px; background:var(--cream);
+  font-size:7.8pt; color:var(--muted); line-height:1.55;
+}
+.disclaimer b{ color:var(--ink-soft); }
